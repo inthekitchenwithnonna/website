@@ -53,12 +53,12 @@ body{position:relative}#leaves{position:absolute;left:0;right:0;top:0;height:0;o
   var colors=['#c2571a','#d98a1f','#a63a1c','#b98124','#8a4b17','#cf6a24'];
   var svg='<svg viewBox="0 0 24 24"><path d="M12 1C7 6 3 10 5 15c1 3 4 4 7 4 3 0 6-1 7-4 2-5-2-9-7-14z"/><line x1="12" y1="10" x2="12" y2="23"/></svg>';
   function rnd(a,b){return a+Math.random()*(b-a)}
-  for(var i=0;i<24;i++){
+  for(var i=0;i<90;i++){
     var l=document.createElement('div');l.className='leaf';
     l.style.setProperty('--s',Math.round(rnd(18,32))+'px');
     l.style.setProperty('--c',colors[Math.floor(rnd(0,colors.length))]);
-    l.style.setProperty('--d',rnd(14,28).toFixed(1)+'s');
-    l.style.setProperty('--w',rnd(0,9).toFixed(1)+'s');
+    l.style.setProperty('--d',rnd(6,12).toFixed(1)+'s');
+    l.style.setProperty('--w',rnd(0,6).toFixed(1)+'s');
     l.style.setProperty('--r',Math.round(rnd(-300,300))+'deg');
     l.style.left=rnd(1,95).toFixed(1)+'%';
     l.innerHTML=svg;box.appendChild(l);
