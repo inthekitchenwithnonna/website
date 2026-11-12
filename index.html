@@ -104,10 +104,15 @@ body{position:relative}#leaves{position:absolute;left:0;right:0;top:0;height:0;o
   if(cards.length<=SHOW)return;
   function render(n){
     cards.forEach(function(c,i){c.classList.toggle("is-collapsed",i>=n)});
-    btn.hidden=n>=cards.length;
+    btn.textContent=n>=cards.length?"Show less":"Load more episodes";
+    btn.setAttribute("aria-expanded",n>=cards.length);
+    btn.hidden=false;
   }
   var shown=SHOW;render(shown);
-  btn.addEventListener("click",function(){shown+=STEP;render(shown)});
+  btn.addEventListener("click",function(){
+    if(shown>=cards.length){shown=SHOW;render(shown);document.getElementById("episodes").scrollIntoView({behavior:"smooth"});}
+    else{shown+=STEP;render(shown);}
+  });
 })();
 </script>
 </body>
